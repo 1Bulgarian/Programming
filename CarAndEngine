@@ -1,0 +1,38 @@
+using System;
+
+namespace predavane_na_argumenti
+{
+    public class Engine
+    {
+        public double volume;
+        public int power;
+        public Engine(double engineVolume, int enginePower)
+        {
+            volume = engineVolume;
+            power = enginePower;
+        }
+    }
+    public class Car
+    {
+        public string brand;
+        public string model;
+        public Engine engine;
+        public Car(string carBrand, string carModel, Engine carEngine)
+        {
+            brand = carBrand;
+            model = carModel;
+            carEngine.volume *=1000;
+            engine = carEngine;
+        }
+    }
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            Engine myEngine = new Engine(2.5, 180);
+            Car myCar = new Car("Shkoda", "Octavia", myEngine);
+            Console.WriteLine(myCar.engine.volume);
+        }
+    }
+}
