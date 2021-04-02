@@ -1,0 +1,29 @@
+using System;
+
+namespace threeNames
+{
+    public class nameSplitter
+    {
+        public string fname;
+        public string sname;
+        public string lname;
+
+        public nameSplitter(string name)
+        {
+            string[] temp = name.Split(" ");
+            fname = temp[0];
+            sname = temp[1];
+            lname = temp[2];
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            nameSplitter ime = new nameSplitter("Simeon Konstantinov Markov");
+            Console.WriteLine(ime.fname);
+            Console.WriteLine(ime.sname);
+            Console.WriteLine(ime.lname);
+        }
+    }
+}
