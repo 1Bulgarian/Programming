@@ -1,0 +1,15 @@
+using System;
+using IronOcr;
+
+namespace ReadStringFromPictures
+{
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var Result = new IronTesseract().Read(@"\OBG\TournamentExperimentation\Lorem.png");
+            Console.WriteLine(Result.Text);
+        }
+    }
+}
