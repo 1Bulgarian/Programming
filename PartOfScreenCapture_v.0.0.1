@@ -1,0 +1,54 @@
+using IronOcr;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ScreenshotsIntoStrings
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private void cap()
+        {
+            while(true)
+            {
+                Bitmap bitmap = new Bitmap(750, 80);
+                Graphics g = Graphics.FromImage(bitmap);
+                g.CopyFromScreen(600, 0, 0, 0, bitmap.Size);
+                pictureBox1.Image = bitmap;
+
+                Thread.Sleep(1000);
+                pictureBox1.Image.Save("D://OBG/TournamentExperimentation/test.png", ImageFormat.Png);
+                Thread.Sleep(500);
+
+
+            }
+        }
+        private void btnCaptureOne_Click(object sender, EventArgs e)
+        {
+            Thread thr = new Thread(cap);
+            thr.Start();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Thread.Sleep(2000);
+        }
+
+        private void btnDie_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
