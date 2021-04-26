@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+namespace Andi3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Програма за изплащане на сума с минимален брой");
+            Console.WriteLine("банкноти и монети в лева.");
+
+            //k=7 защото имаме 7 вида банкноти
+            const int k = 7;
+
+            //Това са 7-те вида банкноти
+            int[] lv = { 100, 50, 20, 10, 5, 2, 1 };
+
+            int sum, i, br;
+
+            //Декларираме Queue banknoti, където ще въвеждаме всяка една от банкнотите
+            Queue<int> banknoti = new Queue<int>();
+
+            //Въвеждаме сумата, която искаме да разделим на банкноти.
+            Console.Write("Въведете сума: ");
+            sum = int.Parse(Console.ReadLine());
+
+            for (i = 0; i < k; i++)
+            {
+                //Разделяме сумата sum на банкноти
+                br = sum / lv[i];
+
+                //и ги въвеждаме в Queue-то
+                banknoti.Enqueue(br);
+                sum %= lv[i];
+            }
+
+            Console.WriteLine("Сумата може да се изплати по следния начин:");
+            i = 0;
+            while (banknoti.Count != 0)
+            {
+                //Изваждаме всяка една банкнота от Queue-то
+                br = banknoti.Dequeue();
+
+                //И ги изписваме в конзолата
+                if (br != 0) Console.WriteLine(br + " банкнота/и * " + lv[i] + "лв.");
+                i++;
+            }
+        }
+    }
+}
