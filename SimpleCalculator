@@ -1,0 +1,260 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SImpleCalculatorV2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnTwitch_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.twitch.tv/1bulgarian");
+        }
+
+        private void btnSum_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtNumber1.Text, out double value))
+            {
+                if(double.TryParse(txtNumber2.Text, out double value2))
+                {
+                    double a = double.Parse(txtNumber1.Text);
+                    double b = double.Parse(txtNumber2.Text);
+
+                    lblWhat.Text = "+";
+
+                    txtResult.Text = Math.Round((a + b), 2).ToString();
+                }
+            }
+        }
+
+        private void btnMultiply_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtNumber1.Text, out double value))
+            {
+                if (double.TryParse(txtNumber2.Text, out double value2))
+                {
+                    double a = double.Parse(txtNumber1.Text);
+                    double b = double.Parse(txtNumber2.Text);
+
+                    lblWhat.Text = "*";
+
+                    txtResult.Text = Math.Round((a * b), 2).ToString();
+                }
+            }
+        }
+
+        private void btnMinus_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtNumber1.Text, out double value))
+            {
+                if (double.TryParse(txtNumber2.Text, out double value2))
+                {
+                    double a = double.Parse(txtNumber1.Text);
+                    double b = double.Parse(txtNumber2.Text);
+
+                    lblWhat.Text = "-";
+
+                    txtResult.Text = Math.Round((a - b), 2).ToString();
+                }
+            }
+        }
+
+        private void btnDevide_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtNumber1.Text, out double value))
+            {
+                if (double.TryParse(txtNumber2.Text, out double value2))
+                {
+                    double a = double.Parse(txtNumber1.Text);
+                    double b = double.Parse(txtNumber2.Text);
+
+                    lblWhat.Text = "/";
+
+                    txtResult.Text = Math.Round((a / b), 2).ToString();
+                }
+            }
+        }
+
+        private void btnStepenSum_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtStepen1.Text, out double value))
+            {
+                if (double.TryParse(txtStepen2.Text, out double value2))
+                {
+                    int a = int.Parse(txtStepen1.Text);
+                    int b = int.Parse(txtStepen2.Text);
+
+                    int temp=a;
+
+                    for (int i = 1; i < b; i++)
+                    {
+                        temp *= a;
+                    }
+                    txtStepenResult.Text = temp.ToString();
+                }
+            }
+        }
+
+        private void btnStepen_Click(object sender, EventArgs e)
+        {
+            pnlStepen.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlStepen.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtStepen1.Text = "";
+            txtStepen2.Text = "";
+            txtStepenResult.Text = "";
+        }
+
+        private void btnSqrtSum_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtSqrtKoren.Text, out double value))
+            {
+                double a = int.Parse(txtSqrtKoren.Text);
+
+                txtSqrtResult.Text = Math.Sqrt(a).ToString();
+            }
+        }
+
+        private void btnSqrtClose_Click(object sender, EventArgs e)
+        {
+            pnSqrt.Visible = false;
+        }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+            pnSqrt.Visible = true;
+        }
+
+        private void btnSqrtClear_Click(object sender, EventArgs e)
+        {
+            txtSqrtKoren.Text = "";
+            txtSqrtResult.Text = "";
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFactSum_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtFactNumber.Text, out double value))
+            {
+                int a = int.Parse(txtFactNumber.Text);
+
+                int fact(int n)
+                {
+                    int o = 1;
+                    for (int i = n; i > 1; i--)
+                    {
+                        o *= i;
+                    }
+                    return o;
+                }
+
+                txtFactResult.Text = fact(a).ToString();
+            }
+        }
+
+        private void btnFactClose_Click(object sender, EventArgs e)
+        {
+            pnFactoriel.Visible = false;
+        }
+
+        private void btnFact_Click(object sender, EventArgs e)
+        {
+            pnFactoriel.Visible = true;
+        }
+
+        private void btnFactClear_Click(object sender, EventArgs e)
+        {
+            txtFactNumber.Text = "";
+            txtFactResult.Text = "";
+        }
+
+        private void btnCMISum_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtCM.Text, out double value))
+            {
+                double a = int.Parse(txtCM.Text);
+                a=a* 0.39370079;
+
+                txtInch.Text = Math.Round(a, 2).ToString();
+            }
+        }
+
+        private void btnSMIClose_Click(object sender, EventArgs e)
+        {
+            pnCMtoInch.Visible = false;
+        }
+
+        private void btnCMI_Click(object sender, EventArgs e)
+        {
+            pnCMtoInch.Visible = true;
+        }
+
+        private void btnCMIClear_Click(object sender, EventArgs e)
+        {
+            txtCM.Text = "";
+            txtInch.Text = "";
+        }
+
+        private void btnICM_Click(object sender, EventArgs e)
+        {
+            pnInchToCM.Visible = true;
+        }
+
+        private void btnICMClose_Click(object sender, EventArgs e)
+        {
+            pnInchToCM.Visible = false;
+        }
+
+        private void btnICMSum_Click(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtInchInch.Text, out double value))
+            {
+                double a = int.Parse(txtInchInch.Text);
+                a = a * 2.54;
+
+                txtInchCM.Text = Math.Round(a, 2).ToString();
+            }
+        }
+
+        private void btnICMClear_Click(object sender, EventArgs e)
+        {
+            txtInchInch.Text = "";
+            txtInchCM.Text = "";
+        }
+
+        private void btnAmazon_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.amazon.com/Calculator-12-Digit-Battery-Sensitive-Calculators/dp/B08YR1FBGQ/ref=sr_1_2_sspa?dchild=1&keywords=calculator&qid=1618949906&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzREFFTklNRUhIWFRGJmVuY3J5cHRlZElkPUEwODAwNzk3MzZVUExNWTg3WFFRNyZlbmNyeXB0ZWRBZElkPUEwODkzNTI0Q0MzUDE4ODJSRlQxJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==");
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtNumber1.Text = "";
+            txtNumber2.Text = "";
+            txtResult.Text = "";
+        }
+    }
+}
