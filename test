@@ -1,0 +1,182 @@
+using System;
+
+namespace threeNames
+{
+    public class EGN_Checker
+    {
+        public string egn;
+        public string dateOfBirth;
+        public string grad;
+        public string pol;
+        public double controlNumber;
+        public string validateEGN;
+        public int[] cifriNaEGN = new int[10];
+        public string temp;
+        string cifriZaGrad;
+
+        //0344306447
+        public EGN_Checker(string egn)
+        {
+            cifriZaGrad = egn.Substring(6, 3);
+            grad = fromWhereAmI(cifriZaGrad);
+            string fromWhereAmI(string cifriZaGrad)
+            {
+                int kur = int.Parse(cifriZaGrad);
+                if (cifriZaGrad.Substring(0, 1) == "0")
+                {
+                    if (kur >= 0 && kur <= 43) return "Blagoevgrad";
+                    else if (kur >= 44 && kur <= 93) return "Burgas";
+                    else return "Varna";
+                }
+                else
+                {
+                    //034430 644 7
+                    //       
+                    if (kur <= 139) return "Varna";
+                    else if (kur >= 140 && kur <= 169) return "Veliko Turnovo";
+                    else if (kur >= 170 && kur <= 183) return "Vidin";
+                    else if (kur >= 184 && kur <= 217) return "Vraca";
+                    else if (kur >= 218 && kur <= 233) return "Gabrovo";
+                    else if (kur >= 234 && kur <= 281) return "Kurdjali";
+                    else if (kur >= 282 && kur <= 301) return "Kyustendil";
+                    else if (kur >= 302 && kur <= 319) return "Lovech";
+                    else if (kur >= 320 && kur <= 341) return "Montana";
+                    else if (kur >= 342 && kur <= 377) return "Pazardjik";
+                    else if (kur >= 378 && kur <= 395) return "Pernik";
+                    else if (kur >= 396 && kur <= 435) return "Pleven";
+                    else if (kur >= 436 && kur <= 501) return "Plovdiv";
+                    else if (kur >= 502 && kur <= 527) return "Razgrad";
+                    else if (kur >= 528 && kur <= 555) return "Ruse";
+                    else if (kur >= 556 && kur <= 575) return "Silistra";
+                    else if (kur >= 576 && kur <= 601) return "Sliven";
+                    else if (kur >= 602 && kur <= 623) return "Smolqn";
+                    else if (kur >= 624 && kur <= 721) return "Sofiq - grad";
+                    else if (kur >= 722 && kur <= 751) return "Sofiq - okrug";
+                    else if (kur >= 752 && kur <= 789) return "Stara Zagora";
+                    else if (kur >= 790 && kur <= 821) return "Dobrich";
+                    else if (kur >= 822 && kur <= 843) return "Turgovishte";
+                    else if (kur >= 844 && kur <= 871) return "Haskovo";
+                    else if (kur >= 872 && kur <= 903) return "Shumen";
+                    else if (kur >= 904 && kur <= 925) return "Qmbol";
+                    else return "Drug/Neizvesten";
+                }
+            }
+
+            string godina = egn.Substring(0, 2);
+            dateOfBirth = Data(godina);
+            string Data(string godina)
+            {
+                string mesec = egn.Substring(2, 2);
+
+                //Proverqva dali meseca zapochva s 4,5 (41-52) ili e s 0,1 (01-12)
+                switch(mesec.Substring(0,1))
+                {
+                    //03/44/30
+                    //30/04/2003
+                    case "4":
+                        return $"{egn.Substring(4,2)}/0{egn.Substring(3,1)}/20{godina}";
+                        break;
+                    case "5":
+                        return $"{egn.Substring(4, 2)}/1{egn.Substring(3, 1)}/20{godina}";
+                        break;
+
+
+
+                    case "0":
+                        return $"{egn.Substring(4,2)}/0{egn.Substring(3,1)}/19{godina}";
+                        break;
+                    case "1":
+                        return $"{egn.Substring(4, 2)}/1{egn.Substring(3, 1)}/19{godina}";
+                        break;
+
+
+
+                    case "2":
+                        return $"{egn.Substring(4,2)}/0{egn.Substring(3,1)}/18{godina}";
+                        break;
+                    case "3":
+                        return $"{egn.Substring(4, 2)}/1{egn.Substring(3, 1)}/18{godina}";
+                        break;
+                    default: return "Nevalidno EGN";
+                }
+            }
+            controlNumber = double.Parse(kontrolnaCifra_checker(egn));
+
+            string kontrolnaCifra_checker(string egn)
+            {
+                double getMeOut1;
+                for (int i = 0; i < 10; i++)
+                {
+                    cifriNaEGN[i] = int.Parse(egn.Substring(i, 1));
+
+                }
+                getMeOut1 = cifriNaEGN[1];
+
+                double kontrolna = cifriNaEGN[0] * 2 + cifriNaEGN[1] * 4 +
+                    cifriNaEGN[2] * 8 + cifriNaEGN[3] * 5 + cifriNaEGN[4] * 10 + cifriNaEGN[5] * 9 +
+                    cifriNaEGN[6] * 7 + cifriNaEGN[7] * 3 + cifriNaEGN[8] * 6;
+
+                temp = kontrolna.ToString();
+                double purvo = kontrolna;
+                double vtoro = kontrolna / 11;
+                vtoro = Math.Round(vtoro, 2);
+                double n = Math.Floor(vtoro);
+
+                string Vtoro = vtoro.ToString();
+                int drob = int.Parse(Vtoro.Substring(Vtoro.IndexOf(",") + 1, 1));
+
+                if (drob >= 10)
+                {
+
+                }
+                else
+                {
+                    kontrolna = purvo - n * 11;
+                    if (kontrolna == 10)
+                    {
+                        kontrolna = 0;
+                    }
+                }
+                return kontrolna.ToString();
+            }
+            
+            string EGN_validator()
+            {
+                if(kontrolnaCifra_checker(egn) == egn.Substring(9,1))
+                {
+                    return "EGN-to e validno";
+                }
+                return $"Kontrolnata cifra trqbva da bude {kontrolnaCifra_checker(egn)}.";
+            }
+            validateEGN = EGN_validator();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            EGN_Checker[] egnta = new EGN_Checker[99];
+            egnta[0] = new EGN_Checker("7705232898");
+            egnta[1] = new EGN_Checker("8510026556");
+            egnta[2] = new EGN_Checker("0450276480");
+            egnta[3] = new EGN_Checker("0344306447");
+            egnta[4] = new EGN_Checker("0344306446");
+            egnta[5] = new EGN_Checker("0351203334");
+            egnta[6] = new EGN_Checker("0351203333");
+            egnta[7] = new EGN_Checker("0343013207");
+
+            for (int i = 0; i <8; i++)
+            {
+                Console.WriteLine(egnta[i].dateOfBirth);
+                Console.WriteLine(egnta[i].validateEGN);
+                Console.WriteLine(egnta[i].grad);
+                for (int k = 0; k < 10; k++)
+                {
+                    Console.Write(egnta[i].cifriNaEGN[k]);
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+        }
+    }
+}
