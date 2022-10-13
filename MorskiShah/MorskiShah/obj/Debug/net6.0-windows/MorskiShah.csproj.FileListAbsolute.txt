@@ -1,0 +1,17 @@
+E:\programming\MorskiShah\MorskiShah\bin\Debug\net6.0-windows\MorskiShah.exe
+E:\programming\MorskiShah\MorskiShah\bin\Debug\net6.0-windows\MorskiShah.deps.json
+E:\programming\MorskiShah\MorskiShah\bin\Debug\net6.0-windows\MorskiShah.runtimeconfig.json
+E:\programming\MorskiShah\MorskiShah\bin\Debug\net6.0-windows\MorskiShah.dll
+E:\programming\MorskiShah\MorskiShah\bin\Debug\net6.0-windows\MorskiShah.pdb
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.csproj.AssemblyReference.cache
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.Form1.resources
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.csproj.GenerateResource.cache
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.GeneratedMSBuildEditorConfig.editorconfig
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.AssemblyInfoInputs.cache
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.AssemblyInfo.cs
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.csproj.CoreCompileInputs.cache
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.dll
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\refint\MorskiShah.dll
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.pdb
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\MorskiShah.genruntimeconfig.cache
+E:\programming\MorskiShah\MorskiShah\obj\Debug\net6.0-windows\ref\MorskiShah.dll
