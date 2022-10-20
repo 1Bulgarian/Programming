@@ -1,0 +1,8 @@
+E:\programming\diskretnaSistema2\diskretnaSistema2\bin\Debug\diskretnaSistema2.exe.config
+E:\programming\diskretnaSistema2\diskretnaSistema2\bin\Debug\diskretnaSistema2.exe
+E:\programming\diskretnaSistema2\diskretnaSistema2\bin\Debug\diskretnaSistema2.pdb
+E:\programming\diskretnaSistema2\diskretnaSistema2\obj\Debug\diskretnaSistema2.csproj.AssemblyReference.cache
+E:\programming\diskretnaSistema2\diskretnaSistema2\obj\Debug\diskretnaSistema2.csproj.SuggestedBindingRedirects.cache
+E:\programming\diskretnaSistema2\diskretnaSistema2\obj\Debug\diskretnaSistema2.csproj.CoreCompileInputs.cache
+E:\programming\diskretnaSistema2\diskretnaSistema2\obj\Debug\diskretnaSistema2.exe
+E:\programming\diskretnaSistema2\diskretnaSistema2\obj\Debug\diskretnaSistema2.pdb
