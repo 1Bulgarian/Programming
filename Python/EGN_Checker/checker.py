@@ -1,0 +1,3 @@
+class CityChecker:
+
+    def grad()
