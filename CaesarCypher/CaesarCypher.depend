@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1683802453 source:d:\programming\c\podgotovka_izpit\caesarcypher\main.c
+	<stdio.h>
+	<stdlib.h>
+
